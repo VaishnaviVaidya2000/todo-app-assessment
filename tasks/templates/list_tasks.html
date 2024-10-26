@@ -1,0 +1,14 @@
+<!-- templates/tasks/list_tasks.html -->
+<h1>Task List</h1>
+<a href="{% url 'add_task' %}">Add New Task</a>
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.task }} - {{ "Completed" if task.completed else "Pending" }}
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+            {% if not task.completed %}
+                <a href="{% url 'mark_task_completed' task.id %}">Mark as Completed</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

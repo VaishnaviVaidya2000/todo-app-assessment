@@ -1,0 +1,8 @@
+<!-- templates/tasks/add_task.html -->
+<h1>Add Task</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Task:</label>
+    <input type="text" name="task" required>
+    <button type="submit">Add Task</button>
+</form>
